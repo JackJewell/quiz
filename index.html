@@ -8,9 +8,28 @@
     <title>Coding Quiz</title>
 </head>
 <body>
+    <div id = "pageTimer"></div>
+    <div class = "container"> 
+        <div class = "row justify-content-center">
+            <span class="border">
+                <div class = "col-12">
+                    <h1>JavaScript Quiz!</h1>
+                    <hr>
+                    <div id="quiz">
+                        <h2 id = questionText></h2>
+                        <input id = "qPage0"><p></p>
+                        <input id = "qPage1"><p></p>
+                        <input id = "qPage2"><p></p>
+                        <input id = "qPage3"><p></p>
+                    </div>
+                    <button type = "button" class = "btn btn-primary" id = "start" onclick = "buildQuiz()">Start Quiz</button>
+                </div>    
+            </span>
+        </div>
+    </div>
+        
+    <div id="results"></div>
 
-        <button type = "button" class = "btn btn-primary" onclick = "timer()">Start Quiz</button>
-        <p id = "pageTimer"></p>
 </body>
 <script src="assets/javascript.js"></script>
 </html>
