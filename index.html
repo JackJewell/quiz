@@ -8,10 +8,14 @@
     <title>Coding Quiz</title>
 </head>
 <body>
-    <div id = "pageTimer"></div>
-    <div class = "container"> 
+    <div class = "container">
+        <div class="row justify-content-end">
+            <div id = "pageTimer">Time = 0</div>
+        </div>
+    </div>
+    <div class = "container mt-5"> 
         <div class = "row justify-content-center">
-            <span class="border">
+            <span class="border ">
                 <div class = "col-12">
                     <h1>JavaScript Quiz!</h1>
                     <hr>
@@ -22,7 +26,13 @@
                         <input id = "qPage2"><p></p>
                         <input id = "qPage3"><p></p>
                     </div>
+
+                    <div id = "highScores">
+                        <ul>
+                        </ul>
+                    </div>
                     <button type = "button" class = "btn btn-primary" id = "start" onclick = "buildQuiz()">Start Quiz</button>
+                    <button type = "button" class = "btn btn-primary" id = "high" onclick = "showScores()">Show High Scores</button>
                 </div>    
             </span>
         </div>
