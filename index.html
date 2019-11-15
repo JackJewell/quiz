@@ -11,8 +11,10 @@
     <div class = "container">
         <div class="row justify-content-end">
             <div id = "pageTimer">Time = 0</div>
+            
         </div>
     </div>
+    <hr>
     <div class = "container mt-5"> 
         <div class = "row justify-content-center">
             <span class="border ">
@@ -21,18 +23,28 @@
                     <hr>
                     <div id="quiz">
                         <h2 id = questionText></h2>
-                        <input id = "qPage0"><p></p>
-                        <input id = "qPage1"><p></p>
-                        <input id = "qPage2"><p></p>
-                        <input id = "qPage3"><p></p>
+                        <form id = "myForm">
+                            <button type = "button" id = "qPage0" class = "btn btn-primary my-2" onclick = "answerTracker(this)"></button><br>
+                            <button type = "button" id = "qPage1" class = "btn btn-primary my-2" onclick = "answerTracker(this)"></button><br>
+                            <button type = "button" id = "qPage2" class = "btn btn-primary my-2" onclick = "answerTracker(this)"></button><br>
+                            <button type = "button" id = "qPage3" class = "btn btn-primary my-2" onclick = "answerTracker(this)"></button><br>
+                        </form>
                     </div>
 
                     <div id = "highScores">
+                        <h2>High Scores:</h2>
                         <ul>
                         </ul>
+                        <form>
+                            Enter your Initials Here:
+                            <input id = "initials" type = "text">
+                            <input id = "submit" type = "submit">
+                        </form>
                     </div>
-                    <button type = "button" class = "btn btn-primary" id = "start" onclick = "buildQuiz()">Start Quiz</button>
-                    <button type = "button" class = "btn btn-primary" id = "high" onclick = "showScores()">Show High Scores</button>
+                    <button type = "button" class = "btn btn-primary m-2" id = "start" onclick = "buildQuiz()">Start Quiz</button>
+                    <button type = "button" class = "btn btn-primary m-2" id = "high" onclick = "showScores()">Show High Scores</button>
+                    <hr>
+                    <div id = "message"></div>
                 </div>    
             </span>
         </div>
