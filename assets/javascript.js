@@ -7,9 +7,10 @@ var scoreHide = document.getElementById("highScores");
 var highHide = document.getElementById("high"); 
 var start = document.getElementById("start");
 var message = document.getElementById("message"); 
-var board = document.getElementById("board"); 
+var board = document.getElementById("board");
+var initialStorage = localStorage.getItem("initials");
 let page = 0;
-let scoreNum;
+let scoreNum =0;
 let answerFinal;
 let myTime;
 quizHide.style.display = "none";
@@ -28,19 +29,19 @@ let questions = [
       answer: "parentheses"
     },
     {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
+      title: "Inside which HTML element do we put the JavaScript?",
+      choices: ["<script>", "<javascript>", "<js>", "<scripting>"],
+      answer: "<script>"
     },
     {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
+      title: "How do you write 'Hello World' in an alert box?",
+      choices: ["msgBox('Hello World');", "msg('Hello World');", "alertBox('Hello World');", "alert('Hello World');"],
+      answer: "alert('Hello World');"
     },
     {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
+      title: "How does a FOR loop start?",
+      choices: ["for(i = 0; i<=5)", "for(i <= 5; i++)", "for(i = 0; i<=5; i++)", "for i = 1 to 5"],
+      answer: "for(i <= 5; i++)"
     }
   ];
 
@@ -114,9 +115,11 @@ function questionMaker(){
 
   function saveScore(){
     scoreNum = currentTime;
+    timeText.textContent = ("Time = "+currentTime);
     quizHide.style.display = "none";
     scoreHide.style.display = "block";
-    //brings up a form that allows the user to input their name, then stores it on the scoreboard
+    //brings up a form that allows the user to input their name
+    return scoreNum;
   }
 
   function showScores(){
@@ -124,18 +127,23 @@ function questionMaker(){
     scoreHide.style.display = "block";
   }
 
- let submit = document.getElementById("submit");
- submit.addEventListener("click",saveInitials());
-
  function saveInitials(){
-  var inputInitials= document.getElementById("initials");
-  localStorage.setItem("initials", inputInitials.value+scoreNum);
+    event.preventDefault();
+    var inputInitials= document.getElementById("initials").value;
+    inputInitials = inputInitials+": "+scoreNum;
+    console.log(inputInitials);
+    localStorage.setItem("initials", inputInitials);
+    buildBoard();
  }
 
- function scoreBoard(){
-  forEach(localStorage.initials){
-    var person = document.createElement("li");
-    person.textContent = localStorage.initials;
-    board.appendChild(person);
-  }
+
+ function buildBoard(){
+   var x = initialStorage.length;
+   for(var i;i>x;){
+     var person = document.createElement("li");
+        person.textContent = initialStorage[i];
+        board.appendChild(person);
+        i++;
+   }
  }
+ 
