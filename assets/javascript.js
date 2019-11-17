@@ -7,6 +7,7 @@ var scoreHide = document.getElementById("highScores");
 var highHide = document.getElementById("high"); 
 var start = document.getElementById("start");
 var message = document.getElementById("message"); 
+var board = document.getElementById("board"); 
 let page = 0;
 let scoreNum;
 let answerFinal;
@@ -129,4 +130,12 @@ function questionMaker(){
  function saveInitials(){
   var inputInitials= document.getElementById("initials");
   localStorage.setItem("initials", inputInitials.value+scoreNum);
+ }
+
+ function scoreBoard(){
+  forEach(localStorage.initials){
+    var person = document.createElement("li");
+    person.textContent = localStorage.initials;
+    board.appendChild(person);
+  }
  }

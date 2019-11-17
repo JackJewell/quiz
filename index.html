@@ -33,9 +33,10 @@
 
                     <div id = "highScores">
                         <h2>High Scores:</h2>
-                        <ul>
+                        <hr>
+                        <ul id = "board">
                         </ul>
-                        <form>
+                        <form onsubmit="saveInitials(this)">
                             Enter your Initials Here:
                             <input id = "initials" type = "text">
                             <input id = "submit" type = "submit">
